@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 	$("body").css({
 
-		"background-color":graph.color()
+		//"background-color":graph.color()
 	});
 
 	buttons.init();

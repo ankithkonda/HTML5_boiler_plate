@@ -9853,7 +9853,7 @@ $(document).ready(function(){
 
 	$("body").css({
 
-		"background-color":graph.color()
+		//"background-color":graph.color()
 	});
 
 	buttons.init();
@@ -9874,7 +9874,7 @@ module.exports = {
   	console.log("maybe me");
   },
   color:function(){
-  	return "yellow";
+  	return "green";
   }
 }
 },{}]},{},[2,3,4]);

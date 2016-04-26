@@ -21,6 +21,7 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^1.1.0",
     "watchify": "^3.7.0"
   },
   "dependencies": {

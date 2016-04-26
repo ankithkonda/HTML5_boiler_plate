@@ -3,15 +3,9 @@ module.exports = function(grunt){
 
 
 	grunt.initConfig({
-	
-		concat:{
-			scss:{
-				src: ['css/*.scss'],
-      			dest: 'css/bundle/bundle.scss',
-			}
-		},
+
 		concurrent:{
-			app:["watch:dev_reload", "watch:js_ugly", "watch:css_ugly", "browserify", "watch:scss_bundle"],
+			app:["watch:dev_reload", "watch:js_ugly", "browserify", "watch:scss_bundle"],
 			options: {
 				logConcurrentOutput: true
 			}
@@ -30,16 +24,12 @@ module.exports = function(grunt){
 		watch:{
 			
 			scss_bundle:{
-				files:["css/*.scss"],
-				tasks:["concat:scss", "sass"]
+				files:["www/css/*.scss"],
+				tasks:["sass"]
 			},
 			js_ugly:{
 				files:["build/js/app.js"],
 				tasks:["uglify:js"]
-			},
-			css_ugly:{
-				files:["build/css/app.css"],
-				tasks:["uglify:css"]
 			},
 			dev_reload:{
 				files:["build/js/app.js", "build/css/app.css"],
@@ -55,20 +45,12 @@ module.exports = function(grunt){
 		      files: {
 		        'build/js/app.min.js': ['build/js/app.js']
 		      }
-		    },
-		    css:{
-		    	files: {
-		        'build/css/app.min.css': ['build/css/app.css']
-		      }
 		    }
 	  	},
 		sass: {                              // Task 
-			dist: {                            // Target 
-				options: {                       // Target options 
-					style: 'compressed'
-				},
+			dist: {
 				files: {                         // Dictionary of files 
-					'build/css/app.css': 'css/bundle/bundle.scss',       // 'destination': 'source' 
+					'build/css/app.css': 'www/css/bundle/bundle.scss',       // 'destination': 'source' 
 				}
 			}
 		}
@@ -80,7 +62,7 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-browserify');
 	grunt.loadNpmTasks('grunt-concurrent');
-	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-sass');
 
 
 	grunt.registerTask('deploy', ["concurrent:app"]);
