@@ -4,7 +4,7 @@
   "description": "HTML5 Basic templet for building simple client side apps (edx html XBlock compatible, instructions in README.md)",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && grunt deploy"
+    "start": "npm install && grunt run"
   },
   "keywords": [
     "HTML5",
