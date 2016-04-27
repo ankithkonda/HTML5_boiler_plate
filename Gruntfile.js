@@ -1,9 +1,6 @@
 module.exports = function(grunt){
 
-
-
 	grunt.initConfig({
-
 		concurrent:{
 			app:["watch:dev_reload", "watch:js_ugly", "browserify", "watch:scss_bundle"],
 			options: {
@@ -13,7 +10,7 @@ module.exports = function(grunt){
 		browserify: {
 			dist: {
 				files: {
-				  'build/js/app.js': ['www/js/*.js']
+				  'build/js/app.js': ['www/js/**/*.js']
 				},
 				options:{
 					watch: true,
@@ -24,7 +21,7 @@ module.exports = function(grunt){
 		watch:{
 			
 			scss_bundle:{
-				files:["www/css/*.scss"],
+				files:["www/sass/**/*.scss"],
 				tasks:["sass"]
 			},
 			js_ugly:{
@@ -47,17 +44,15 @@ module.exports = function(grunt){
 		      }
 		    }
 	  	},
-		sass: {                              // Task 
+		sass: {
 			dist: {
-				files: {                         // Dictionary of files 
-					'build/css/app.css': 'www/css/bundle/bundle.scss',       // 'destination': 'source' 
+				files: {
+					'build/css/app.css': 'www/sass/main.scss',
 				}
 			}
 		}
 	});
 
-
-	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-browserify');
@@ -65,5 +60,5 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-sass');
 
 
-	grunt.registerTask('deploy', ["concurrent:app"]);
+	grunt.registerTask('run', ["concurrent:app"]);
 }
