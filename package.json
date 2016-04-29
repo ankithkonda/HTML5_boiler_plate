@@ -2,7 +2,6 @@
   "name": "html5_boiler_plate",
   "version": "0.0.1",
   "description": "HTML5 Basic templet for building simple client side apps (edx html XBlock compatible, instructions in README.md)",
-  "main": "index.js",
   "scripts": {
     "start": "npm install && grunt run"
   },
@@ -12,15 +11,17 @@
   ],
   "author": "Ankith Konda",
   "license": "MIT",
+  "private": true,
   "devDependencies": {
     "browserify": "^13.0.0",
-    "grunt": "^1.0.1",
+    "grunt": "~0.4.5",
     "grunt-browserify": "^5.0.0",
     "grunt-concurrent": "^2.3.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-insert": "^0.1.0",
     "grunt-sass": "^1.1.0",
     "watchify": "^3.7.0"
   },

@@ -2,7 +2,7 @@ module.exports = function(grunt){
 
 	grunt.initConfig({
 		concurrent:{
-			app:["watch:dev_reload", "watch:js_ugly", "browserify", "watch:scss_bundle"],
+			app:["watch:dev_reload", "watch:js_ugly", "browserify", "watch:scss_bundle", "sass:dist"],
 			options: {
 				logConcurrentOutput: true
 			}
@@ -48,6 +48,8 @@ module.exports = function(grunt){
 			dist: {
 				files: {
 					'build/css/app.css': 'www/sass/main.scss',
+					'build/css/edx.css': 'www/sass/edx.scss',
+
 				}
 			}
 		}
